@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Demo · Lydiam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css">
+</head>
+<body style="background:var(--ivory)"><div class="proto-banner"><b>Design concept</b> by RequityAI for Lydiam Group. This is not Lydiam's live website and not a financial service.</div>
+<div id="demo">
+<div class="demo-top">Demo account with sample data. Nothing here is real money.<a href="index.html">Back to site</a><a href="#" id="reset">Reset demo</a></div>
+<div class="appx">
+  <aside>
+    <a class="logo" href="index.html">Lydiam</a>
+    <button class="on" data-v="home">Home</button>
+    <button data-v="convert">Convert</button>
+    <button data-v="pay">Pay</button>
+    <button data-v="appr">Approvals <em id="ac">0</em></button>
+    <button data-v="cards">Cards</button>
+    <button data-v="sec">Security</button>
+    <div class="who"><b>Anna Kowalska</b>Your Company Ltd · Sage</div>
+  </aside>
+  <main>
+    <section class="ap2 on" data-v="home">
+      <h1 id="tot">£0</h1><p class="lead">Total across all accounts, in GBP</p>
+      <div class="balg" id="bals"></div>
+      <div class="panel"><h2>Recent activity</h2><div id="tx"></div></div>
+    </section>
+    <section class="ap2" data-v="convert">
+      <h1>Convert</h1><p class="lead">Move money between your balances at the mid-market rate plus a clear fee.</p>
+      <div class="panel"><div class="fr"><div class="fl"><label>Amount</label><input id="ca" value="25,000" inputmode="decimal"></div><div class="fl"><label>From</label><select id="cf"></select></div><div class="fl"><label>To</label><select id="ct"></select></div></div>
+        <div class="row" style="border:0"><span class="nm">You receive<small id="cr"></small></span><span class="v" id="co" style="font-size:24px"></span></div>
+        <button class="btn" id="cgo" style="margin-top:14px">Convert now</button></div>
+    </section>
+    <section class="ap2" data-v="pay">
+      <h1>Pay</h1><p class="lead">Payments over £20,000 go to a second approver. New payees can be paid after 24 hours.</p>
+      <div class="panel"><div class="fr"><div class="fl"><label>Payee</label><select id="pp"></select></div><div class="fl"><label>Amount</label><input id="pa" value="8,000" inputmode="decimal"></div><div class="fl"><label>From balance</label><select id="pc"></select></div></div>
+        <div style="display:flex;gap:10px"><button class="btn" id="pgo">Send payment</button><button class="btn" id="pnew" style="background:transparent;color:var(--ink);border:1.5px solid var(--ink)">Add a payee</button></div></div>
+      <div class="panel"><h2>Payees</h2><div id="pl"></div></div>
+    </section>
+    <section class="ap2" data-v="appr">
+      <h1>Approvals</h1><p class="lead">Payments waiting for a second person.</p>
+      <div class="panel" id="al"></div>
+    </section>
+    <section class="ap2" data-v="cards">
+      <h1>Cards</h1><p class="lead">Freeze a card instantly. Unfreeze when you find it.</p>
+      <div class="panel" id="cl" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px"></div>
+    </section>
+    <section class="ap2" data-v="sec">
+      <h1>Security</h1><p class="lead">Devices signed in to your account, and your private safety phrase.</p>
+      <div class="panel"><h2>Signed-in devices</h2><div id="dl"></div><button class="sbtn" id="lo" style="margin-top:14px">Log out everywhere else</button></div>
+      <div class="panel"><h2>Safety phrase</h2><p class="lead" style="margin:0 0 14px">Shown on every genuine email from Lydiam.</p><div class="fl" style="max-width:360px"><input id="ph" value="Copper heron"></div></div>
+    </section>
+  </main>
+</div>
+</div>
+<div class="toast2" id="t"></div>
+<script src="demo.js"></script>
+</body>
+</html>

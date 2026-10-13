@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Developers · Lydiam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css">
+</head>
+<body><div class="proto-banner"><b>Design concept</b> by RequityAI for Lydiam Group. This is not Lydiam's live website and not a financial service.</div>
+<header class="ihead" id="hd"><nav>
+    <a class="logo" href="index.html">Lydiam</a>
+    <div class="links"><a href="index.html#platform">Platform</a><a href="index.html#audience">Who we serve</a><a href="index.html#markets">Markets</a><a href="index.html#tools">Tools</a><a href="index.html#tiers">Membership</a><a href="index.html#trust">Trust</a></div>
+    <div class="right"><a class="login" href="demo.html">Client login</a><a class="btn sm" href="eligibility.html">Get started</a></div>
+  </nav></header>
+<section class="sec" id="devp" style="padding-top:0"><div class="wrap">
+<div class="ihero"><p class="crumb"><a href="index.html">Home</a> / Developers</p><h1>Money, <span>as an API.</span></h1><p class="sub">Quotes, conversions, payouts and named accounts for your own customers, with signed webhooks for every change. Sandbox access on request.</p></div>
+<div class="dev">
+ <ul class="caps">
+  <li><b>Quotes</b><span>Live rates with a hold window, so your customer sees exactly what they'll pay.</span></li>
+  <li><b>Payouts</b><span>Send to bank accounts in the currencies Lydiam supports, single or in bulk.</span></li>
+  <li><b>Named accounts</b><span>Issue accounts in your customers' own names, one per customer or entity.</span></li>
+  <li><b>Webhooks</b><span>Signed events for every state change, from quote to settlement.</span></li>
+  <li><b>Built for agents</b><span>Connect Claude, ChatGPT or Cursor over MCP, with approvals kept in human hands.</span></li>
+ </ul>
+ <div><div class="code"><div class="tabs2" id="ct2"><button class="on" data-c="curl">cURL</button><button data-c="node">Node</button><button data-c="python">Python</button><button data-c="mcp">MCP</button></div><pre id="cp"></pre><div class="bar2"><span>Illustrative. Final API reference to be published by Lydiam.</span><button id="cc">Copy</button></div></div>
+ <div style="display:flex;gap:28px;align-items:center;margin-top:32px"><a class="btn" href="#">Request sandbox keys</a><a class="under" href="#">Read the docs</a></div></div>
+</div></div></section>
+<footer id="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#">Lydiam</a><p style="margin-top:16px;max-width:22em;line-height:1.6">An international financial services and advisory group for companies, institutions and private wealth.</p></div>
+      <div><h4>Products</h4><ul><li><a href="#">Accounts and IBANs</a></li><li><a href="#">Foreign exchange</a></li><li><a href="#">Payments</a></li><li><a href="#">Cards</a></li><li><a href="#">Digital assets</a></li><li><a href="#">Advisory</a></li></ul></div>
+      <div><h4>Tools</h4><ul><li><a href="index.html#tools">Hedging simulator</a></li><li><a href="index.html#tools">Rate history</a></li><li><a href="index.html#tools">Treasury health</a></li><li><a href="index.html#savings">Savings calculator</a></li><li><a href="index.html#markets">Markets</a></li></ul></div>
+      <div><h4>Trust</h4><ul><li><a href="index.html#trust">Verify a contact</a></li><li><a href="index.html#trust">Check bank details</a></li><li><a href="index.html#trust">Who we are</a></li><li><a href="help.html">Report fraud</a></li><li><a href="help.html">Help</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="index.html#regions">Offices</a></li><li><a href="#">Careers</a></li><li><a href="index.html#insights">Insights</a></li><li><a href="developers.html">Developers</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <div>Regulated activity is carried out only by the specific legal entity concerned. Regulatory disclosures and terms to be supplied and approved by Lydiam.</div>
+      <div>Rates shown are indicative. Fiat rates: European Central Bank reference rates. Crypto prices: CoinGecko.</div>
+      <div>Design prototype. Not a live financial service.</div>
+    </div>
+  </div>
+</footer>
+<script>(()=>{const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const C={curl:`# Request a quote
+curl https://api.lydiamgroup.com/v1/quotes \\
+  -H "Authorization: Bearer $LYDIAM_KEY" \\
+  -H "Idempotency-Key: 7f1c2e" \\
+  -d sell_currency=GBP \\
+  -d buy_currency=INR \\
+  -d sell_amount=250000`,node:`import Lydiam from "@lydiam/node";
+
+const lydiam = new Lydiam(process.env.LYDIAM_KEY);
+
+const quote = await lydiam.quotes.create({
+  sell_currency: "GBP",
+  buy_currency: "INR",
+  sell_amount: 250000,
+});
+
+await lydiam.payouts.create({ quote: quote.id, beneficiary: "ben_8Kq" });`,python:`import os, lydiam
+
+client = lydiam.Client(api_key=os.environ["LYDIAM_KEY"])
+
+quote = client.quotes.create(
+    sell_currency="GBP",
+    buy_currency="INR",
+    sell_amount=250_000,
+)
+print(quote.rate, quote.expires_in)`,mcp:`// Connect Lydiam to Claude, ChatGPT or Cursor
+{
+  "mcpServers": {
+    "lydiam": { "url": "https://mcp.lydiamgroup.com", "auth": "oauth" }
+  }
+}
+// Then ask: "Pay the three open EUR invoices,
+// but wait for my approval first."`};
+const hl=l=>{let h=l.replace(/&/g,'&amp;').replace(/</g,'&lt;');const m=h.match(/(^|\s)(#|\/\/)/);let c='';if(m){const i=m.index+m[1].length;c=`<span class="c">${h.slice(i)}</span>`;h=h.slice(0,i)}return h.replace(/"[^"]*"/g,s=>`<span class="s">${s}</span>`)+c};
+let k='curl';const r=x=>{k=x;$('#cp').innerHTML=C[x].split('\n').map((l,i)=>`<span class="ln">${i+1}</span>${hl(l)}`).join('\n');$$('#ct2 button').forEach(b=>b.classList.toggle('on',b.dataset.c===x))};
+$$('#ct2 button').forEach(b=>b.onclick=()=>r(b.dataset.c));$('#cc').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(C[k]);$('#cc').textContent='Copied';setTimeout(()=>$('#cc').textContent='Copy',1500)};r('curl')})();</script>
+</body>
+</html>

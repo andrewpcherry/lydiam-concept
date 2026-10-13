@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Check your eligibility · Lydiam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css">
+</head>
+<body><div class="proto-banner"><b>Design concept</b> by RequityAI for Lydiam Group. This is not Lydiam's live website and not a financial service.</div>
+<header class="ihead" id="hd"><nav>
+    <a class="logo" href="index.html">Lydiam</a>
+    <div class="links"><a href="index.html#platform">Platform</a><a href="index.html#audience">Who we serve</a><a href="index.html#markets">Markets</a><a href="index.html#tools">Tools</a><a href="index.html#tiers">Membership</a><a href="index.html#trust">Trust</a></div>
+    <div class="right"><a class="login" href="demo.html">Client login</a><a class="btn sm" href="eligibility.html">Get started</a></div>
+  </nav></header>
+
+<section class="sec" id="elig" style="padding-top:0">
+  <div class="wrap">
+    <div class="ihero">
+      <p class="crumb"><a href="index.html">Home</a> / Get started</p>
+      <h1>Sixty seconds to <span>a straight answer.</span></h1>
+      <p class="sub">Five questions. You'll see the accounts you're likely to qualify for, the documents to prepare and how long it takes. Lydiam's compliance team makes the final decision.</p>
+    </div>
+    <div class="el">
+      <div class="qcard" id="qcard"></div>
+      <aside class="side"><h3>Your answers</h3><ol id="sum"></ol><p class="note">Nothing you enter here is sent anywhere. It stays in this browser until you choose to apply.</p></aside>
+    </div>
+  </div>
+</section>
+
+<footer id="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#">Lydiam</a><p style="margin-top:16px;max-width:22em;line-height:1.6">An international financial services and advisory group for companies, institutions and private wealth.</p></div>
+      <div><h4>Products</h4><ul><li><a href="#">Accounts and IBANs</a></li><li><a href="#">Foreign exchange</a></li><li><a href="#">Payments</a></li><li><a href="#">Cards</a></li><li><a href="#">Digital assets</a></li><li><a href="#">Advisory</a></li></ul></div>
+      <div><h4>Tools</h4><ul><li><a href="index.html#tools">Hedging simulator</a></li><li><a href="index.html#tools">Rate history</a></li><li><a href="index.html#tools">Treasury health</a></li><li><a href="index.html#savings">Savings calculator</a></li><li><a href="index.html#markets">Markets</a></li></ul></div>
+      <div><h4>Trust</h4><ul><li><a href="index.html#trust">Verify a contact</a></li><li><a href="index.html#trust">Check bank details</a></li><li><a href="index.html#trust">Who we are</a></li><li><a href="help.html">Report fraud</a></li><li><a href="help.html">Help</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="index.html#regions">Offices</a></li><li><a href="#">Careers</a></li><li><a href="index.html#insights">Insights</a></li><li><a href="developers.html">Developers</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <div>Regulated activity is carried out only by the specific legal entity concerned. Regulatory disclosures and terms to be supplied and approved by Lydiam.</div>
+      <div>Rates shown are indicative. Fiat rates: European Central Bank reference rates. Crypto prices: CoinGecko.</div>
+      <div>Design prototype. Not a live financial service.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const Q=[
+ {k:'who',q:'Who is the account for?',h:'Pick the closest fit.',o:['A company','A family office','Me, personally','A fund or institution']},
+ {k:'where',q:'Where are you based or incorporated?',h:'This decides which Lydiam entity serves you.',o:['United Kingdom','United Arab Emirates','United States','Canada','India','South Africa','European Union','Somewhere else']},
+ {k:'vol',q:'How much moves across borders each month?',h:'A rough figure is fine.',o:['Under £100,000','£100,000 to £1M','£1M to £10M','Over £10M']},
+ {k:'need',q:'What do you need?',h:'Choose as many as apply.',o:['Accounts in my own name','Foreign exchange','Payments to suppliers or staff','Cards','Digital assets','Advice on hedging or structure'],multi:true},
+ {k:'when',q:'When would you like to start?',h:'',o:['This week','This month','This quarter','Just looking']}
+];
+let A={},i=0;
+const DOCS={'A company':['Certificate of incorporation','Register of directors and shareholders','Proof of business address','Passport or ID for each director and 25% owner','A short note on where your funds come from'],'A family office':['Structure chart of the entities','Trust deeds or entity documents','Passport or ID for principals and controllers','Source of wealth statement'],'Me, personally':['Passport or national ID','Proof of address from the last three months','Source of funds and wealth'],'A fund or institution':['Constitutional documents','Licences you hold','Your AML policy','List of authorised signatories']};
+function summary(){$('#sum').innerHTML=Q.map(q=>{const v=A[q.k];return `<li><span>${q.q.replace('?','')}</span><b>${v?(Array.isArray(v)?(v.length?v.length+' selected':'None yet'):v):'...'}</b></li>`}).join('')}
+function render(){summary();const c=$('#qcard');
+  if(i>=Q.length)return result();
+  const q=Q[i],cur=A[q.k];
+  c.innerHTML=`<div class="qprog"><span>Question ${i+1} of ${Q.length}</span><span>${Math.round(i/Q.length*100)}%</span></div><div class="qbar"><i style="width:${i/Q.length*100}%"></i></div>
+   <h2>${q.q}</h2>${q.h?`<p class="hint">${q.h}</p>`:''}
+   <div class="opts">${q.o.map(o=>`<button class="opt ${q.multi?'multi':''} ${(q.multi?(cur||[]).includes(o):cur===o)?'on':''}" data-o="${o}"><i></i>${o}</button>`).join('')}</div>
+   <div class="qnav">${i?'<button class="back" id="bk">Back</button>':'<span></span>'}${q.multi?'<button class="btn" id="nx">Continue</button>':''}</div>`;
+  $$('.opt').forEach(b=>b.onclick=()=>{if(q.multi){const a=A[q.k]||[];const j=a.indexOf(b.dataset.o);j<0?a.push(b.dataset.o):a.splice(j,1);A[q.k]=a;b.classList.toggle('on');summary()}else{A[q.k]=b.dataset.o;i++;setTimeout(render,140);b.classList.add('on')}});
+  const bk=$('#bk');if(bk)bk.onclick=()=>{i--;render()};const nx=$('#nx');if(nx)nx.onclick=()=>{i++;render()}}
+function result(){const c=$('#qcard');
+  if(A.where==='European Union'){c.innerHTML=`<div class="result"><span class="tier-pill">Result</span><h2>Not available <span>in your region yet.</span></h2><p class="hint" style="margin-top:16px;font-size:17px;line-height:1.6">Lydiam's current website states it does not offer services to people in the European Union. Leave your email and we'll let you know if that changes.</p><div class="qnav"><button class="back" id="rs">Start again</button></div></div>`;$('#rs').onclick=()=>{A={};i=0;render()};return}
+  const big=A.vol==='Over £10M'||A.vol==='£1M to £10M',tier=(A.who==='A family office'||A.who==='Me, personally')&&big?'Forest':big?'Champagne':'Sage';
+  const need=(A.need&&A.need.length?A.need:['Accounts in my own name','Foreign exchange']);
+  c.innerHTML=`<div class="result"><span class="tier-pill">You're likely a fit for ${tier}</span><h2>Here's your <span>starting point.</span></h2>
+   <p class="sub2">What we'd set up first</p><ul class="chk" style="pointer-events:none">${need.map(n=>`<li class="on"><i></i>${n}</li>`).join('')}</ul>
+   <p class="sub2">Documents to prepare</p><ul class="chk" id="docs">${(DOCS[A.who]||DOCS['A company']).map(d=>`<li><i></i><span>${d}</span></li>`).join('')}</ul>
+   <p class="sub2">How long it takes</p><div class="tl2"><div><b>15 minutes</b>Apply online</div><div><b>Set by Lydiam</b>Compliance review</div><div><b>Set by Lydiam</b>Accounts live</div></div>
+   <div class="qnav" style="margin-top:40px"><button class="back" id="rs">Start again</button><a class="btn" href="#">Start my application</a></div></div>`;
+  $$('#docs li').forEach(l=>l.onclick=()=>l.classList.toggle('on'));$('#rs').onclick=()=>{A={};i=0;render()};
+  $('.side h3').textContent='Your answers';}
+render();
+})();
+</script>
+</body>
+</html>
