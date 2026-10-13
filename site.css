@@ -693,6 +693,16 @@ h1,.head h2,.big,.keep,.sl label b,.reg-row .tm,.aud h3,.plist span,.agent .n,.r
 .orbit .s1 span{transform:translate(-50%,-50%) translate(0,-80px)}
 .orbit .s2 span{transform:translate(-50%,-50%) translate(0,-80px) rotate(-72deg)}
 .orbit .s4 span{transform:translate(-50%,-50%) translate(0,-80px) rotate(-216deg)}
+/* transform: clean state switch, only tiles glide */
+.tx-bg:after{opacity:0;transition:opacity .45s ease}
+.tx.on .tx-bg:after{opacity:1}
+.tx-broken{opacity:1;transition:opacity .3s}.tx.on .tx-broken{opacity:0}
+.tx-links{opacity:0;transition:opacity .4s .1s}.tx.on .tx-links{opacity:1}
+.xcore{transform:scale(.4);opacity:0;transition:transform .45s cubic-bezier(.2,.8,.2,1.2),opacity .3s}
+.tx.on .xcore{transform:scale(1);opacity:1}
+.tx-c,.tx.on .tx-c{animation:none!important}
+.tx-c.c-new{display:none}.tx.on .tx-c.c-new{display:block;opacity:1;visibility:visible;animation:swapin .35s ease!important}
+.tx.on .tx-c.c-old{display:none}.tx:not(.on) .tx-c.c-old{display:block;opacity:1;visibility:visible;animation:swapin .35s ease!important}
 
 .proto-banner{background:#0B1A13;color:rgba(242,237,227,.75);font-size:13px;text-align:center;padding:9px 20px;font-family:'Instrument Sans',system-ui,sans-serif}
 .proto-banner b{color:#F2EDE3;font-weight:600}
