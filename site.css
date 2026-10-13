@@ -680,6 +680,19 @@ h1,.head h2,.big,.keep,.sl label b,.reg-row .tm,.aud h3,.plist span,.agent .n,.r
 .orbit .s1 span{transform:translate(-50%,-50%) translate(0,-85px)}
 .orbit .s2 span{transform:translate(-50%,-50%) translate(0,-85px) rotate(-72deg)}
 .orbit .s4 span{transform:translate(-50%,-50%) translate(0,-85px) rotate(-216deg)}
+/* transform: no overlapping copy during the switch */
+.tx-c{transition:none}
+.tx-c.c-old{opacity:1;visibility:visible;animation:none}
+.tx-c.c-new{opacity:0;visibility:hidden;transform:none}
+.tx.on .c-old{opacity:0;visibility:hidden;transform:none}
+.tx.on .c-new{opacity:1;visibility:visible;animation:swapin .35s ease}
+.tx:not(.on) .c-old{animation:swapin .35s ease}
+@keyframes swapin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.xt{transition:background .25s,border-color .25s,color .25s}
+.orbit .r2{width:160px;height:160px}
+.orbit .s1 span{transform:translate(-50%,-50%) translate(0,-80px)}
+.orbit .s2 span{transform:translate(-50%,-50%) translate(0,-80px) rotate(-72deg)}
+.orbit .s4 span{transform:translate(-50%,-50%) translate(0,-80px) rotate(-216deg)}
 
 .proto-banner{background:#0B1A13;color:rgba(242,237,227,.75);font-size:13px;text-align:center;padding:9px 20px;font-family:'Instrument Sans',system-ui,sans-serif}
 .proto-banner b{color:#F2EDE3;font-weight:600}
