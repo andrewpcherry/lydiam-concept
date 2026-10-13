@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Lydiam</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css?v=1791907630">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css?v=1791907718">
 </head>
 <body><div class="proto-banner"><b>Design concept</b> by RequityAI for Lydiam Group. This is not Lydiam's live website and not a financial service.</div>
 <section class="hero">
@@ -638,6 +638,6 @@ adv:'<div class="sb-k">Advisory</div><div class="sb-big">Hedge 60% of Q4</div><d
 const b=document.getElementById('st-body'),show=k=>{b.innerHTML=P[k];document.querySelectorAll('#st-tabs button').forEach(x=>x.classList.toggle('on',x.dataset.t===k));if(k==='fx'&&window.LY){const R=LY.rates();const e=document.getElementById('st-fx');if(e)e.textContent=(R.USD/R.EUR).toFixed(4)}};
 document.querySelectorAll('#st-tabs button').forEach(x=>x.onclick=()=>show(x.dataset.t));show('fx');window.LY&&LY.subs.push(()=>{const e=document.getElementById('st-fx');if(e){const R=LY.rates();e.textContent=(R.USD/R.EUR).toFixed(4)}});})();
 </script>
-<script src="motion.js"></script>
+<script src="motion.js?v=1791907718"></script>
 </body>
 </html>

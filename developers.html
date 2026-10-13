@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Developers · Lydiam</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css?v=1791907630">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css?v=1791907718">
 </head>
 <body><div class="proto-banner"><b>Design concept</b> by RequityAI for Lydiam Group. This is not Lydiam's live website and not a financial service.</div>
 <header class="ihead" id="hd"><nav>
@@ -83,6 +83,6 @@ print(quote.rate, quote.expires_in)`,mcp:`// Connect Lydiam to Claude, ChatGPT o
 const hl=l=>{let h=l.replace(/&/g,'&amp;').replace(/</g,'&lt;');const m=h.match(/(^|\s)(#|\/\/)/);let c='';if(m){const i=m.index+m[1].length;c=`<span class="c">${h.slice(i)}</span>`;h=h.slice(0,i)}return h.replace(/"[^"]*"/g,s=>`<span class="s">${s}</span>`)+c};
 let k='curl';const r=x=>{k=x;$('#cp').innerHTML=C[x].split('\n').map((l,i)=>`<span class="ln">${i+1}</span>${hl(l)}`).join('\n');$$('#ct2 button').forEach(b=>b.classList.toggle('on',b.dataset.c===x))};
 $$('#ct2 button').forEach(b=>b.onclick=()=>r(b.dataset.c));$('#cc').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(C[k]);$('#cc').textContent='Copied';setTimeout(()=>$('#cc').textContent='Copy',1500)};r('curl')})();</script>
-<script src="motion.js"></script>
+<script src="motion.js?v=1791907718"></script>
 </body>
 </html>
