@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Help · Lydiam</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css?v=1791906982">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Instrument+Sans:wdth,wght@75..100,400..700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css?v=1791907536">
 </head>
 <body><div class="proto-banner"><b>Design concept</b> by RequityAI for Lydiam Group. This is not Lydiam's live website and not a financial service.</div>
 <header class="ihead" id="hd"><nav>
@@ -61,5 +61,6 @@ function r(){const q=$('#q').value.toLowerCase().trim();$('#cats').innerHTML=cat
  const l=F.filter(f=>(cat==='All'||f[0]===cat)&&(f[1]+' '+f[2]).toLowerCase().includes(q));
  $('#fq').innerHTML=l.length?l.map((f,i)=>`<details ${i===0&&q?'open':''}><summary>${f[1]}<i></i></summary><p>${f[2]}</p></details>`).join(''):'<p class="empty">No answers match that yet. Try another word, or chat with us below.</p>'}
 $('#q').addEventListener('input',r);r()})();</script>
+<script src="motion.js"></script>
 </body>
 </html>

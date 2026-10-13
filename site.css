@@ -703,6 +703,40 @@ h1,.head h2,.big,.keep,.sl label b,.reg-row .tm,.aud h3,.plist span,.agent .n,.r
 .tx-c,.tx.on .tx-c{animation:none!important}
 .tx-c.c-new{display:none}.tx.on .tx-c.c-new{display:block;opacity:1;visibility:visible;animation:swapin .35s ease!important}
 .tx.on .tx-c.c-old{display:none}.tx:not(.on) .tx-c.c-old{display:block;opacity:1;visibility:visible;animation:swapin .35s ease!important}
+/* ---------- motion ---------- */
+.js-motion .mv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.js-motion .mv.in{opacity:1;transform:none}
+.js-motion .mv-intro{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.js-motion .mv-intro.in{opacity:1;transform:none}
+.js-motion .head h2 span{display:inline-block;transition:color .8s}
+/* bento graphics play when the card arrives */
+.js-motion .bx-c:not(.in) .onb-list div,.js-motion .bx-c:not(.in) .stamp,.js-motion .bx-c:not(.in) .bubble2{animation-play-state:paused}
+/* orbit rotates as a system */
+.orbit .sys{position:absolute;inset:0;animation:sysrot 40s linear infinite}
+.orbit .sys .spin span{animation:counter 40s linear infinite}
+@keyframes sysrot{to{transform:rotate(360deg)}}
+@keyframes counter{to{rotate:-360deg}}
+.orbit .hub{animation:hubp 3s ease-in-out infinite}
+@keyframes hubp{50%{box-shadow:0 0 0 16px rgba(100,175,132,.12)}}
+/* market sparklines draw in */
+.mk-row polyline{stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.7,.2,1) .2s}
+.mk-row.in polyline,.rm .mk-row polyline{stroke-dashoffset:0}
+/* table rows sweep */
+.wt tbody tr.mv{transform:translateX(-16px)}.wt tbody tr.mv.in{transform:none}
+/* hover lifts */
+.pillars a,.tier,.vbox,.contact div,.need-g div{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.pillars a:hover,.vbox:hover,.contact div:hover{transform:translateY(-4px)}
+.tier .ph,.aud .ph{transition:transform .3s ease-out;will-change:transform}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn:hover:after{transform:translateX(120%)}
+/* converter number pulse */
+#out{transition:color .3s}
+/* sticky nav once scrolled (inner pages already sticky) */
+.scrolled .ihead{box-shadow:0 10px 30px -20px rgba(16,35,26,.35)}
+/* reduced motion */
+.rm .mv,.rm .mv-intro{opacity:1!important;transform:none!important}
+@media(prefers-reduced-motion:reduce){.orbit .sys,.orbit .sys .spin span,.orbit .hub{animation:none}}
 
 .proto-banner{background:#0B1A13;color:rgba(242,237,227,.75);font-size:13px;text-align:center;padding:9px 20px;font-family:'Instrument Sans',system-ui,sans-serif}
 .proto-banner b{color:#F2EDE3;font-weight:600}
