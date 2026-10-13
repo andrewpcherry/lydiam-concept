@@ -524,6 +524,19 @@ h1,.head h2,.big,.keep,.sl label b,.reg-row .tm,.aud h3,.plist span,.agent .n,.r
 .ent td:last-child{border-radius:0 10px 10px 0}
 .ent tr:hover td{background:rgba(242,237,227,.08)}
 @media(max-width:1000px){.wt th,.wt td{padding:16px 14px}.wt td:first-child{font-size:17px}.wt th{font-size:16px}.wt td.y:before,.wt td.y2:before,.wt td.n:before,.wt td.s:before{width:22px;height:22px;margin-right:6px}.ent td:first-child{font-size:18px}}
+/* comparison table: no card (B), stronger text */
+.wt{background:transparent;box-shadow:none;border-radius:0;overflow:visible}
+.wt th,.wt td{border-bottom:1px solid rgba(16,35,26,.14)}
+.wt th{border-bottom:1px solid rgba(16,35,26,.24)}
+.wt th.me{border-radius:14px 14px 0 0}
+.wt tbody tr:last-child td.me{border-radius:0 0 14px 14px}
+.wt tbody tr:hover td{background:rgba(16,35,26,.03)}
+.wt td{font-size:16px;color:var(--ink)}
+.wt td.n,.wt td.s{color:#2E3832;font-weight:500}
+.wt td.y2{color:var(--ink);font-weight:500}
+.wt td.n:before{background:rgba(16,35,26,.1);color:#4A524C}
+.wt td.s:before{background:#EFE2C2;color:#7A5A14}
+.wt td.y2:before{background:#D6EBDE;color:#2F7550}
 
 .proto-banner{background:#0B1A13;color:rgba(242,237,227,.75);font-size:13px;text-align:center;padding:9px 20px;font-family:'Instrument Sans',system-ui,sans-serif}
 .proto-banner b{color:#F2EDE3;font-weight:600}
