@@ -8,7 +8,9 @@ if(reduce){document.documentElement.classList.add('rm');return}
 /* 1. intro sequence on the hero / inner-page hero */
 const intro=$$('.hero .copy > *, .ihero > *');
 intro.forEach((el,i)=>{el.classList.add('mv-intro');el.style.setProperty('--d',(120+i*110)+'ms')});
-requestAnimationFrame(()=>requestAnimationFrame(()=>intro.forEach(el=>el.classList.add('in'))));
+setTimeout(()=>intro.forEach(el=>el.classList.add('in')),40);
+/* safety net: never leave content hidden */
+setTimeout(()=>document.querySelectorAll('.mv-intro:not(.in)').forEach(el=>el.classList.add('in')),2000);
 
 /* 2. scroll reveals with stagger inside groups */
 const groups=['.pillars > a','.need-g > div','.bx > .bx-c','.plist > li','.mk-tabs + .mk-row ~ #mk-rows > .mk-row','#mk-rows > .mk-row','.agents > .agent','#reg > .reg-row','.vs > div','.wt tbody tr','.tiers > .tier','.tl > button','.vt > .vbox','.prot > div','.ent tbody tr','.ins > .art','.faqs > details','.fg > div','.need-g > div','.contact > div','.caps > li','#fq > details','.el > *','.dev > *','.balg > div','.cgrid > a','.tiers .tier'];
@@ -18,6 +20,7 @@ function tag(el,d){if(seen.has(el)||el.closest('.hero'))return;seen.add(el);el.c
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
 function scan(){groups.forEach(g=>{const parents=new Map();$$(g).forEach(el=>{const p=el.parentElement;const i=parents.get(p)||0;parents.set(p,i+1);tag(el,Math.min(i,8)*80)})});singles.forEach(s=>$$(s).forEach(el=>tag(el,0)))}
 scan();
+setTimeout(()=>document.querySelectorAll('.mv:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add('in')}),2000);
 /* re-scan when scripts render rows later (markets, regions, FAQ filters) */
 const mo=new MutationObserver(()=>{clearTimeout(scan._t);scan._t=setTimeout(scan,60)});['#mk-rows','#reg','#fq','#aud','#p-accts','#bals','#qcard','#al','#pl','#cl','#dl'].forEach(id=>{const el=document.querySelector(id);if(el)mo.observe(el,{childList:true})});
 
